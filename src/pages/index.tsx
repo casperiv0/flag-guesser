@@ -44,6 +44,8 @@ export default function Home() {
       });
     }
 
+    if (questions.length === prevQuestions.length) return;
+
     setCurrentQuestion(getRandomQuestion(questions));
   }
 
@@ -67,7 +69,14 @@ export default function Home() {
           Score: {score}/{prevQuestions.length} • Hightscore: {highscore}
         </h2>
 
-        <QuestionView handleNextQuestion={handleNextQuestion} question={currentQuestion} />
+        {questions.length === prevQuestions.length ? (
+          <p className={styles.endTitle}>
+            Well then... that&apos;s the end! Thanks for playing. Reload the page to start a new
+            game!
+          </p>
+        ) : (
+          <QuestionView handleNextQuestion={handleNextQuestion} question={currentQuestion} />
+        )}
       </div>
     </div>
   );

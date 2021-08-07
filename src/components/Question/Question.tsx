@@ -41,7 +41,13 @@ export const QuestionView = ({ question, handleNextQuestion }: Props) => {
 
   return (
     <div className={styles.container}>
-      <Image className={styles.image} src={question.flagUrl} width="750px" height="500px" />
+      <Image
+        className={styles.image}
+        src={question.flagUrl}
+        width="750px"
+        height="500px"
+        placeholder="empty"
+      />
 
       <div className={styles.choices}>
         {question.choices.map((choice) => (
