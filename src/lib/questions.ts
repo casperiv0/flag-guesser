@@ -31,10 +31,11 @@ function makeChoices(country: Country, countries: Country[]) {
    */
   for (let i = 0; i < 4; i++) {
     const randomIdx = Math.floor(Math.random() * countries.length);
-    const country = countries[randomIdx] as Country;
+    const randomCountry = countries[randomIdx] as Country;
 
-    if (selectChoices.includes(country.name)) continue;
-    selectChoices.push(country?.name);
+    if (randomCountry.name === country.name) continue;
+    if (selectChoices.includes(randomCountry.name)) continue;
+    selectChoices.push(randomCountry.name);
   }
 
   return addAnswerAtIndex(selectChoices, country.name);
@@ -47,6 +48,8 @@ function addAnswerAtIndex(choices: string[], answer: string) {
     const prev = choices[randomIdx] as string;
 
     choices[randomIdx - 1] = prev;
+    choices[randomIdx] = answer;
+  } else {
     choices[randomIdx] = answer;
   }
 
@@ -64,6 +67,8 @@ export function getRandomQuestion(questions: Question[]) {
     if (cached.includes(country)) continue;
     random = country;
   }
+
+  cached.push(random);
 
   return random;
 }

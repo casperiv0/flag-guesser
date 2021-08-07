@@ -1,10 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 500px;
-
-  align-items: center;
-  justify-content: center;
+  width: 800px;
 }
 
 .image {
@@ -13,6 +10,7 @@
 
 .choices {
   display: flex;
+  justify-content: center;
 }
 
 .choiceBtn {
@@ -24,7 +22,27 @@
   background: #dddddd;
   border: 2px solid transparent;
 
+  font-size: 1rem;
   font-weight: 500;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &.correct {
+    background: #009543;
+  }
+
+  &.incorrect {
+    background: #ae1c28;
+  }
+}
+
+.nextFlagBtn {
+  @extend .choiceBtn;
+
+  align-self: center;
+  width: 8rem;
 
   &:hover {
     background: #bbbbbb;
