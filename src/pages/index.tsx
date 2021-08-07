@@ -67,7 +67,7 @@ export default function Home() {
       <div>
         <h1 className={styles.appTitle}>Guess the country by the flag!</h1>
         <h2 className={styles.scoreTitle}>
-          Score: {score}/{prevQuestions.length} • Hightscore: {highscore}
+          Score: {score}/{prevQuestions.length} • Highscore: {highscore}
         </h2>
 
         {questions.length === prevQuestions.length ? (
