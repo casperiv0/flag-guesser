@@ -4,15 +4,11 @@ import { Question } from "types/Question";
 const API_URL = "https://restcountries.eu/rest/v2/";
 
 export async function fetchCountries(): Promise<Country[]> {
-  const data = await fetch(API_URL)
+  const data: Country[] | null = await fetch(API_URL)
     .then((v) => v.json())
     .catch(() => null);
 
-  if (!data) {
-    return [];
-  }
-
-  return data;
+  return data ?? [];
 }
 
 export async function makeFunctionsArray(): Promise<Question[]> {
@@ -55,4 +51,19 @@ function addAnswerAtIndex(choices: string[], answer: string) {
   }
 
   return choices;
+}
+
+const cached: Question[] = [];
+export function getRandomQuestion(questions: Question[]) {
+  let random = {} as Question;
+
+  for (let i = 0; i < questions.length; i++) {
+    const randomIdx = Math.floor(Math.random() * questions.length);
+    const country = questions[randomIdx] as Question;
+
+    if (cached.includes(country)) continue;
+    random = country;
+  }
+
+  return random;
 }

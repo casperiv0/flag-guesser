@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ["restcountries.eu"],
+  },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       config.resolve.alias = {
