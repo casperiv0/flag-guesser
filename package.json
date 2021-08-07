@@ -11,9 +11,13 @@
   "dependencies": {
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.37.5"
   },
   "devDependencies": {
+    "@casper124578/eslint-config": "^0.0.16",
+    "@casper124578/eslint-config-next": "^0.0.5",
+    "@casper124578/eslint-config-react": "^0.0.6",
     "@types/react": "17.0.16",
     "eslint": "7.32.0",
     "eslint-config-next": "11.0.1",
