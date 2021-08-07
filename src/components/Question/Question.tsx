@@ -47,6 +47,7 @@ export const QuestionView = ({ question, handleNextQuestion }: Props) => {
         width="750px"
         height="500px"
         placeholder="empty"
+        layout="responsive"
       />
 
       <div className={styles.choices}>

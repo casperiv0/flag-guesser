@@ -6,6 +6,7 @@ import { Question } from "types/Question";
 import { QuestionView, States } from "components/Question/Question";
 import { loadHighScore, updateLocalStorageScore } from "lib/score";
 import styles from "styles/app.module.scss";
+import { Footer } from "components/Footer/Footer";
 
 export default function Home() {
   const [questions, setQuestions] = React.useState<Question[]>([]);
@@ -78,6 +79,8 @@ export default function Home() {
           <QuestionView handleNextQuestion={handleNextQuestion} question={currentQuestion} />
         )}
       </div>
+
+      <Footer />
     </div>
   );
 }
