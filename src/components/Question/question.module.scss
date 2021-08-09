@@ -9,7 +9,7 @@
 }
 
 .image {
-  border: 1.5px solid #bbbbbb !important;
+  border: 1.5px solid #2f2f2f !important;
 }
 
 .choices {
@@ -27,7 +27,8 @@
   border-radius: 0.5rem;
 
   cursor: pointer;
-  background: #dddddd;
+  background: #2f2f2f;
+  color: #ffffff;
   border: 2px solid transparent;
 
   font-size: 1rem;
@@ -53,6 +54,6 @@
   width: 8rem;
 
   &:hover {
-    background: #bbbbbb;
+    filter: brightness(120%);
   }
 }

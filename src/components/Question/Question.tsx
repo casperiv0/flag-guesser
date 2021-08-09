@@ -48,6 +48,7 @@ export const QuestionView = ({ question, handleNextQuestion }: Props) => {
         height="500px"
         placeholder="empty"
         layout="responsive"
+        draggable={false}
       />
 
       <div className={styles.choices}>

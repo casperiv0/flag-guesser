@@ -1,3 +1,8 @@
+:root {
+  --dark: #1f1f1f;
+  --light: #f2f2f2;
+}
+
 *,
 *::after,
 *::before {
@@ -8,5 +13,6 @@
 }
 
 body {
-  background: white;
+  background: var(--dark);
+  color: var(--light);
 }
