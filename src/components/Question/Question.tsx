@@ -44,6 +44,7 @@ export const QuestionView = ({ question, handleNextQuestion }: Props) => {
       <Image
         className={styles.image}
         src={question.flagUrl}
+        alt={question.choices.join(" or ")}
         width="750px"
         height="500px"
         placeholder="empty"
