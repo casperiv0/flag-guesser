@@ -7,8 +7,14 @@ import { QuestionView, States } from "components/Question/Question";
 import { loadHighScore, updateLocalStorageScore } from "lib/score";
 import styles from "styles/app.module.scss";
 import { Footer } from "components/Footer/Footer";
+import { GetServerSideProps } from "next";
 
-export default function Home() {
+interface Props {
+  question: Question;
+  questions: Question[];
+}
+
+export default function Home({ question, questions: serverQuestions }: Props) {
   const [questions, setQuestions] = React.useState<Question[]>([]);
   const [currentQuestion, setCurrentQuestion] = React.useState<Question | null>(null);
 
@@ -19,14 +25,6 @@ export default function Home() {
 
   const [highscore, setHighscore] = React.useState(0);
   const [score, setScore] = React.useState(0);
-
-  async function init() {
-    const data = await makeFunctionsArray();
-    setQuestions(data);
-    setCurrentQuestion(getRandomQuestion(data));
-
-    setHighscore(loadHighScore());
-  }
 
   function handleNextQuestion(state: States) {
     setPrevQuestions((p) => [...p, currentQuestion!]);
@@ -51,8 +49,11 @@ export default function Home() {
   }
 
   React.useEffect(() => {
-    init();
-  }, []);
+    setCurrentQuestion(question);
+    setQuestions(serverQuestions);
+
+    setHighscore(loadHighScore());
+  }, [question, serverQuestions]);
 
   if (questions.length <= 0 || !currentQuestion) {
     return <p>Loading...</p>;
@@ -84,3 +85,15 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await makeFunctionsArray();
+  const question = getRandomQuestion(data);
+
+  return {
+    props: {
+      question,
+      questions: data,
+    },
+  };
+};
