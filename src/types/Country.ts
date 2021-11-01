@@ -1,8 +1,14 @@
 // only added stuff that I will use
 export interface Country {
-  name: string;
+  name: {
+    common: string;
+    official: string;
+  };
   nativeName: string;
-  flag: string;
+  flags: {
+    png: string;
+    svg: string;
+  };
 
   /**
    * @see [https://en.wikipedia.org/wiki/International_Olympic_Committee](https://en.wikipedia.org/wiki/International_Olympic_Committee)

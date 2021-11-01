@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["restcountries.eu"],
+    domains: ["flagcdn.com"],
   },
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {

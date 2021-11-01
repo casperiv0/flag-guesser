@@ -1,12 +1,13 @@
 import { Country } from "types/Country";
 import { Question } from "types/Question";
 
-const API_URL = "https://restcountries.eu/rest/v2/";
+const API_VERSION = 3.1;
+const API_URL = `https://restcountries.com/v${API_VERSION}`;
 
 export async function fetchCountries(): Promise<Country[]> {
-  const data: Country[] | null = await fetch(API_URL)
+  const data: Country[] | null = await fetch(`${API_URL}/all`)
     .then((v) => v.json())
-    .catch(() => null);
+    .catch(() => []);
 
   return data ?? [];
 }
@@ -16,8 +17,8 @@ export async function makeFunctionsArray(): Promise<Question[]> {
 
   return countries.map((country) => {
     return {
-      flagUrl: country.flag,
-      answer: country.name,
+      flagUrl: country.flags.svg,
+      answer: country.name.official,
       choices: makeChoices(country, countries),
     };
   });
@@ -34,11 +35,11 @@ function makeChoices(country: Country, countries: Country[]) {
     const randomCountry = countries[randomIdx] as Country;
 
     if (randomCountry.name === country.name) continue;
-    if (selectChoices.includes(randomCountry.name)) continue;
-    selectChoices.push(randomCountry.name);
+    if (selectChoices.includes(randomCountry.name.official)) continue;
+    selectChoices.push(randomCountry.name.official);
   }
 
-  return addAnswerAtIndex(selectChoices, country.name);
+  return addAnswerAtIndex(selectChoices, country.name.official);
 }
 
 function addAnswerAtIndex(choices: string[], answer: string) {
