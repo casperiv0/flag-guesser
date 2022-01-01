@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-// @ts-expect-error https://github.com/vercel/next.js/issues/32110
 class MyDocument extends Document {
   render() {
     return (
