@@ -21,7 +21,7 @@ export const QuestionView = ({ question, handleNextQuestion }: Props) => {
   }
 
   function isChoiceCorrect(choice: string) {
-    if (disabled === true) return;
+    if (disabled) return;
     setDisabled(true);
 
     const correct = question?.answer === choice;
