@@ -8,7 +8,7 @@ export type States = "correct" | "incorrect";
 
 interface Props {
   question: Question;
-  handleNextQuestion: (state: States) => void;
+  handleNextQuestion(state: States): void;
 }
 
 export const QuestionView = ({ question, handleNextQuestion }: Props) => {
@@ -24,7 +24,7 @@ export const QuestionView = ({ question, handleNextQuestion }: Props) => {
     if (disabled) return;
     setDisabled(true);
 
-    const correct = question?.answer === choice;
+    const correct = question.answer === choice;
     if (correct) {
       setState("correct");
     } else {
