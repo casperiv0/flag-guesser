@@ -16,7 +16,4 @@ module.exports = {
 
     return config;
   },
-  experimental: {
-    turboMode: true,
-  },
 };
