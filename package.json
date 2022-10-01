@@ -9,20 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.5",
+    "next": "12.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.54.0"
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "@casper124578/eslint-config": "^5.0.1",
     "@casper124578/eslint-config-next": "^5.0.0",
     "@casper124578/eslint-config-react": "^5.0.0",
-    "@types/node": "^18.7.14",
+    "@types/node": "^18.7.23",
     "@types/react": "18.0.18",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "eslint": "8.21.0",
+    "eslint": "8.24.0",
     "typescript": "4.8.2"
   }
 }
