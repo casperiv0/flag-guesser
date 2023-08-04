@@ -9,7 +9,7 @@ export const Footer = () => {
           restcountries
         </a>{" "}
         API • Created by{" "}
-        <a target="_blank" rel="noopener noreferrer" href="https://caspertheghost.me">
+        <a target="_blank" rel="noopener noreferrer" href="https://casperiv.dev">
           CasperTheGhost
         </a>
       </p>
